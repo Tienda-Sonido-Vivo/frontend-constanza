@@ -119,3 +119,27 @@ footer {
     }
 
 }
+
+
+/* =========================================================
+   MIS PEDIDOS
+   ========================================================= */
+
+/* Cada pedido */
+.pedido-item {
+    transition: background-color 0.2s ease;
+}
+
+/* Efecto visual al pasar el cursor */
+.pedido-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Ajustes para teléfonos */
+@media (max-width: 767px) {
+
+    .pedido-item .btn {
+        width: 100%;
+    }
+
+}
