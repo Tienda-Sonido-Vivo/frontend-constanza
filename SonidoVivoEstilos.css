@@ -22,6 +22,8 @@ Le dará un tamaño de 20 pixeles a los textos del menú. */
     font-size: 20px;
 }
 
+/*Le daremos un tamaño de 20 pixeles a los parrafos y elementos de listas*/
+
 p, li {
     font-size: 20px;
 }
