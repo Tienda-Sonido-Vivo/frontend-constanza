@@ -1,3 +1,7 @@
+/* =========================================================
+   ESTILSO GLOBALES
+   ========================================================= */
+
 /* === HEADER === */
 
 /* border-bottom:
@@ -26,6 +30,7 @@ Le dará un tamaño de 20 pixeles a los textos del menú. */
 
 p, li {
     font-size: 20px;
+    text-align: left;
 }
 
 
@@ -34,6 +39,20 @@ p, li {
 .color-azul {
     color: #005f7f;
 }
+
+/* === FOOTER === */
+
+/* border-TOP:
+Le dará un borde superior al footer con un color azul y un grosor definido de 10 pixeles */
+
+footer {
+    border-top: 10px solid #005f7f;
+}
+
+
+/* =========================================================
+   PÁGINA PRINCIPAL
+   ========================================================= */
 
 /* === TEXTO DEL CARRUSEL === */
 
@@ -80,13 +99,17 @@ p, li {
 
 }
 
-/* === FOOTER === */
+.seccion-principal{
 
-/* border-TOP:
-Le dará un borde superior al footer con un color azul y un grosor definido de 10 pixeles */
+    background-color: rgb(230, 236, 241);
+    border-radius: 10px;
+    padding: 10px;
 
-footer {
-    border-top: 10px solid #005f7f;
+}
+
+.imagen-principal{
+
+    border-radius: 10px;
 }
 
 
@@ -195,3 +218,4 @@ footer {
     }
 
 }
+
