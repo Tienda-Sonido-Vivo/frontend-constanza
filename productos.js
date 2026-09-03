@@ -1,6 +1,7 @@
 let productos = [
 
     {
+        codigo: "BA002",
         nombre: "Bajo Eléctrico Jazz Bass",
         categoria: "Bajos Eléctricos",
         marca: "Fender",
@@ -13,6 +14,7 @@ let productos = [
 
 
     {
+        codigo: "GA001",
         nombre: "Guitarra Acústica Folk",
         categoria: "Guitarras Acústicas",
         marca: "Yamaha",
@@ -24,6 +26,7 @@ let productos = [
     },
 
     {
+        codigo: "BT003",
         nombre: 'Caja Snare 14"',
         categoria: "Baterías",
         marca: "Pearl",
@@ -32,41 +35,7 @@ let productos = [
         stock: 4,
         imagen: "imagenes/tarjetas/Bateria Pearl STE1450.jpeg",
         descripcion: 'Acero, 14x5", 10 tensores.'
-    },
-
-    {
-        nombre: "Bajo Eléctrico Jazz Bass",
-        categoria: "Bajos Eléctricos",
-        marca: "Fender",
-        modelo: "Player Jazz",
-        precio: 699990,
-        stock: 2,
-        imagen: "imagenes/tarjetas/Bajo Fender Player Jazz.jpg",
-        descripcion: "Alder body, 2 Alnico V Jazz single-coil."
-    },
-
-
-    {
-        nombre: "Guitarra Acústica Folk",
-        categoria: "Guitarras Acústicas",
-        marca: "Yamaha",
-        modelo: "F310",
-        precio: 129990,
-        stock: 8,
-        imagen: "imagenes/tarjetas/Guitarra Acustica Yamaha F310.webp",
-        descripcion: "Tapa de abeto, aros y fondo de meranti. Ideal para iniciantes."
-    },
-
-    {
-        nombre: 'Caja Snare 14"',
-        categoria: "Baterías",
-        marca: "Pearl",
-        modelo: "STE1450",
-        precio: 89990,
-        stock: 4,
-        imagen: "imagenes/tarjetas/Bateria Pearl STE1450.jpeg",
-        descripcion: 'Acero, 14x5", 10 tensores.'
-    },
+    }
 
 ];
 
@@ -78,7 +47,7 @@ for (let i = 0; i < productos.length; i++) {
 
     lista.innerHTML += `
 
-                    <!-- TARJETA N°n : Primera columna -->
+                    <!-- TARJETA | Columna -->
 
                     <!-- COL: Este contenedor hara que cada imagen sea una columna individual de la fila -->
 
@@ -86,15 +55,11 @@ for (let i = 0; i < productos.length; i++) {
 
                         <div class="card h-100 w-100">
 
-                            <a href="bajoFenderPlayerJazz.html">
-
-                                <img
-                                    src="${productos[i].imagen}"
-                                    class="card-img-top"
-                                    alt="producto"
-                                >
-
-                            </a>
+                            <img
+                                src="${productos[i].imagen}"
+                                class="card-img-top"
+                                alt="producto"
+                            >
 
                             <div class="card-body text-center">
 
@@ -110,12 +75,11 @@ for (let i = 0; i < productos.length; i++) {
                                     $${productos[i].precio}
                                 </h3>
 
-                                <a
-                                    href="bajoFenderPlayerJazz.html"
-                                    class="btn btn-primary"
-                                >
-                                    Ver más
-                                </a>
+                                <button
+                                class="btn btn-primary"
+                                onclick="verDetalle('${productos[i].codigo}')">
+                                    Ver detalle
+                                </button>
 
                             </div>
 
@@ -124,4 +88,27 @@ for (let i = 0; i < productos.length; i++) {
                     </div>
 
     `;
+}
+
+// Función que recibe el id del producto seleccionado
+function verDetalle(codigo) {
+
+    let productoSeleccionado;
+
+    // Recorremos el arreglo buscando el producto
+    for (let i = 0; i < productos.length; i++) {
+
+        if (productos[i].codigo === codigo) {
+            productoSeleccionado = productos[i];
+        }
+    }
+
+    // Guardamos el producto seleccionado en localStorage
+    localStorage.setItem(
+        "producto",
+        JSON.stringify(productoSeleccionado)
+    );
+
+    // Nos dirigimos al segundo HTML
+    window.location.href = "detalle-producto.html";
 }
