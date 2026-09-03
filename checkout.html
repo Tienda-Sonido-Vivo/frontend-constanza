@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - Sonido Vivo</title>
+
+    <!-- Link a Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <!-- Link a CSS base -->
+    <link rel="stylesheet" href="ZZcssBase.css" />
+
+    <!-- Link a CSS personalizado del checkout -->
+    <link rel="stylesheet" href="checkoutEstilos.css" />
+  </head>
+
+  <body>
+    <!-- === HEADER / NAVBAR === -->
+    <header>
+      <!-- === MENÚ DEL HEADER === -->
+
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-sm">
+        <div class="container">
+          <!-- LOGO -->
+
+          <a
+            class="navbar-brand fw-bold fs-4 text-white"
+            href="SonidoVivo.html"
+          >
+            Sonido <span class="color-azul">Vivo</span>
+          </a>
+
+          <!-- BOTÓN HAMBURGUESA -->
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- CONTENIDO DEL NAVBAR -->
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto fs-5">
+              <!-- INICIO -->
+
+              <li class="nav-item">
+                <a class="nav-link text-white" href="SonidoVivo.html">
+                  Inicio
+                </a>
+              </li>
+
+              <!-- CATEGORÍAS -->
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categorias
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="guitarrasAcusticas.html">
+                      Guitarras Acústicas
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="guitarrasElectricas.html">
+                      Guitarras Eléctricas
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="bajosElectricos.html">
+                      Bajos Eléctricos
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="baterias.html"> Baterías </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="tecladosPianos.html">
+                      Teclados y Pianos
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="amplificadoresSonido.html">
+                      Amplificadores de sonido
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="microfonos.html">
+                      Micrófonos
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="pedalesEfectos.html">
+                      Pedales de Efectos
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="accesorios.html">
+                      Accesorios
+                    </a>
+                  </li>
+
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="estudioGrabacion.html">
+                      Estudio y Grabación
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- SERVICIOS -->
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Servicios
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="servicioReparacion.html">
+                      Reparación Instrumentos de Cuerda
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- NOSOTROS -->
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Nosotros
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="sobreNosotros.html">
+                      Sobre Nosotros
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="sobreNosotros.html#ubicacion"
+                    >
+                      Donde Encontrarnos
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      class="dropdown-item"
+                      href="sobreNosotros.html#contactos"
+                    >
+                      Contactanos
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- CARRITO -->
+
+              <li class="nav-item">
+                <a class="nav-link text-white" href="carrito.html"> Carrito </a>
+              </li>
+
+              <!-- INICIAR SESIÓN -->
+
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href=""
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Mi Cuenta
+                </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="login.html">
+                      Iniciar Sesion
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="registro.html">
+                      Registrarme
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="dropdown-item" href="misPedidos.html">
+                      Mis Pedidos
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+            <!-- BUSCADOR -->
+
+            <form class="d-flex ms-3" role="search">
+              <input
+                class="form-control form-control-sm me-2"
+                type="search"
+                placeholder="Buscar..."
+                aria-label="Buscar"
+              />
+
+              <button class="btn btn-outline-light btn-sm" type="submit">
+                Buscar
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- === CONTENIDO PRINCIPAL === -->
+    <main class="container my-5">
+      <!-- BREADCRUMB / NAVEGACIÓN -->
+      <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="SonidoVivo.html" class="text-decoration-none">Inicio</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="carrito.html" class="text-decoration-none">Carrito</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Finalizar Compra
+          </li>
+        </ol>
+      </nav>
+
+      <!-- TÍTULO DE LA PÁGINA -->
+      <div class="mb-5">
+        <h1 class="color-azul fw-bold">Finalizar Compra</h1>
+        <p class="text-muted">
+          Revisa y completa tus datos para formalizar tu pedido
+        </p>
+      </div>
+
+      <!-- FORMULARIO DE CHECKOUT -->
+      <form id="formCheckout" class="needs-validation" novalidate>
+        <div class="row g-4">
+          <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+          <div class="col-12 col-lg-8">
+            <!-- === SECCIÓN 1: DATOS DEL CLIENTE === -->
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">1. Datos del Cliente</h5>
+              </div>
+              <div class="card-body">
+                <!-- PAÍS -->
+                <div class="mb-3">
+                  <label for="pais" class="form-label fw-semibold">
+                    País
+                  </label>
+                  <select
+                    class="form-select"
+                    id="pais"
+                    name="pais"
+                    required
+                    disabled
+                  >
+                    <option selected value="chile">Chile</option>
+                  </select>
+                </div>
+
+                <!-- NOMBRE Y APELLIDOS -->
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label fw-semibold">
+                        Nombre
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Ej: Juan"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Por favor, ingresa tu nombre.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="apellidos" class="form-label fw-semibold">
+                        Apellidos
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="apellidos"
+                        name="apellidos"
+                        placeholder="Ej: Pérez García"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Por favor, ingresa tus apellidos.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TELÉFONO Y CORREO -->
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="telefono" class="form-label fw-semibold">
+                        Teléfono
+                      </label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="Ej: +56 9 1234 5678"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Por favor, ingresa un teléfono válido.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="correo" class="form-label fw-semibold">
+                        Correo Electrónico
+                      </label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="correo"
+                        name="correo"
+                        placeholder="Ej: juan@ejemplo.com"
+                        required
+                      />
+                      <div class="invalid-feedback">
+                        Por favor, ingresa un correo válido.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- REGIÓN -->
+                <div class="mb-3">
+                  <label for="region" class="form-label fw-semibold">
+                    Región
+                  </label>
+                  <select
+                    class="form-select"
+                    id="region"
+                    name="region"
+                    required
+                  >
+                    <option value="">-- Selecciona una región --</option>
+                    <option value="antofagasta">Antofagasta</option>
+                    <option value="atacama">Atacama</option>
+                    <option value="aysen">Aysén</option>
+                    <option value="biobio">Bío Bío</option>
+                    <option value="coquimbo">Coquimbo</option>
+                    <option value="la-araucania">La Araucanía</option>
+                    <option value="la-pampa">La Pampa</option>
+                    <option value="los-lagos">Los Lagos</option>
+                    <option value="los-rios">Los Ríos</option>
+                    <option value="magallanes">Magallanes</option>
+                    <option value="maule">Maule</option>
+                    <option value="metropolitana" selected>
+                      Metropolitana de Santiago
+                    </option>
+                    <option value="nnuble">Ñuble</option>
+                    <option value="ohiggins">O'Higgins</option>
+                    <option value="tarapaca">Tarapacá</option>
+                    <option value="valparaiso">Valparaíso</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Por favor, selecciona una región.
+                  </div>
+                </div>
+
+                <!-- COMUNA -->
+                <div class="mb-3">
+                  <label for="comuna" class="form-label fw-semibold">
+                    Comuna
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="comuna"
+                    name="comuna"
+                    placeholder="Ej: Viña del Mar"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor, ingresa tu comuna.
+                  </div>
+                </div>
+
+                <!-- DIRECCIÓN -->
+                <div class="mb-3">
+                  <label for="direccion" class="form-label fw-semibold">
+                    Dirección
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="direccion"
+                    name="direccion"
+                    placeholder="Ej: Calle Principal 123"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Por favor, ingresa tu dirección.
+                  </div>
+                </div>
+
+                <!-- NÚMERO DE CASA/APARTAMENTO Y CÓDIGO POSTAL -->
+                <div class="row">
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label
+                        for="numeroVivienda"
+                        class="form-label fw-semibold"
+                      >
+                        N° de Casa/Apartamento
+                        <span class="text-muted">(Opcional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="numeroVivienda"
+                        name="numeroVivienda"
+                        placeholder="Ej: Depto 42, Casa B"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="codigoPostal" class="form-label fw-semibold">
+                        Código Postal
+                        <span class="text-muted">(Opcional)</span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="codigoPostal"
+                        name="codigoPostal"
+                        placeholder="Ej: 2520000"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- === SECCIÓN 2: MÉTODO DE ENTREGA === -->
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">2. Método de Entrega</h5>
+              </div>
+              <div class="card-body">
+                <!-- OPCIÓN DESPACHO -->
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="metodoEntrega"
+                    id="metodoDespacho"
+                    value="despacho"
+                    checked
+                    onchange="mostrarOpciones()"
+                  />
+                  <label class="form-check-label" for="metodoDespacho">
+                    <strong>Despacho a domicilio</strong>
+                    <span class="text-muted ms-2">
+                      - Costo: $8.990 (Se agregará al total)
+                    </span>
+                  </label>
+                </div>
+
+                <!-- CAMPOS DE DESPACHO -->
+                <div id="camposDespacho" class="ps-4 mb-3">
+                  <p class="text-muted small">
+                    Tu pedido será entregado en la dirección indicada arriba
+                  </p>
+                </div>
+
+                <!-- OPCIÓN RETIRO EN TIENDA -->
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="metodoEntrega"
+                    id="metodoRetiro"
+                    value="retiro"
+                    onchange="mostrarOpciones()"
+                  />
+                  <label class="form-check-label" for="metodoRetiro">
+                    <strong>Retiro en tienda</strong>
+                    <span class="text-muted ms-2"> - Sin costo de envío </span>
+                  </label>
+                </div>
+
+                <!-- CAMPOS DE RETIRO -->
+                <div id="camposRetiro" class="ps-4 mb-3" style="display: none">
+                  <p class="text-muted small">
+                    Ubicación: Calle Principal 456, Viña del Mar (próximo a la
+                    estación)
+                  </p>
+                  <p class="text-muted small">
+                    Horarios de retiro: Lunes a Viernes 10:00 - 19:00 | Sábados
+                    10:00 - 14:00
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- === SECCIÓN 3: MÉTODO DE PAGO === -->
+            <div class="card mb-4 shadow-sm">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">3. Método de Pago</h5>
+              </div>
+              <div class="card-body">
+                <!-- DÉBITO -->
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="metodoPago"
+                    id="pagoDebito"
+                    value="debito"
+                    onchange="actualizarFormaPago()"
+                  />
+                  <label class="form-check-label" for="pagoDebito">
+                    <strong>Tarjeta de Débito</strong>
+                  </label>
+                </div>
+
+                <!-- CRÉDITO -->
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="metodoPago"
+                    id="pagoCredito"
+                    value="credito"
+                    onchange="actualizarFormaPago()"
+                  />
+                  <label class="form-check-label" for="pagoCredito">
+                    <strong>Tarjeta de Crédito</strong>
+                  </label>
+                </div>
+
+                <!-- TRANSBANK WEBPAY (OPCIONAL) -->
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="metodoPago"
+                    id="pagoTransbank"
+                    value="transbank"
+                    onchange="actualizarFormaPago()"
+                  />
+                  <label class="form-check-label" for="pagoTransbank">
+                    <strong>Transbank Webpay</strong>
+                    <span class="text-muted ms-2">(Opcional)</span>
+                  </label>
+                </div>
+
+                <!-- KLAP (OPCIONAL) -->
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="metodoPago"
+                    id="pagoKlap"
+                    value="klap"
+                    onchange="actualizarFormaPago()"
+                  />
+                  <label class="form-check-label" for="pagoKlap">
+                    <strong>Klap</strong>
+                    <span class="text-muted ms-2">(Opcional)</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- === SECCIÓN 4: DATOS DE PAGO === -->
+            <div class="card mb-4 shadow-sm" id="datosPagoCard">
+              <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">4. Datos del Método de Pago</h5>
+              </div>
+              <div class="card-body" id="contenidoDatosPago">
+                <!-- CONTENIDO DINÁMICO -->
+                <p class="text-muted">
+                  Selecciona un método de pago para ver los datos requeridos
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMNA DERECHA: RESUMEN DEL PEDIDO -->
+          <div class="col-12 col-lg-4">
+            <!-- === RESUMEN DEL PEDIDO === -->
+            <div class="card shadow-sm sticky-top" style="top: 20px">
+              <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Resumen del Pedido</h5>
+              </div>
+
+              <div class="card-body">
+                <!-- ITEMS DEL CARRITO -->
+                <div id="resumenItems" class="resumen-items mb-3">
+                  <!-- Los productos del carrito se cargarán mediante JavaScript -->
+                </div>
+
+                <hr />
+
+                <!-- CÁLCULOS -->
+                <div class="mb-2">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal:</span>
+                        <strong id="subtotal">$0</strong>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Envío:</span>
+                        <strong id="costoEnvio">$0</strong>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>IVA (incluido):</span>
+                        <strong id="iva">$0</strong>
+                    </div>
+                </div>
+
+                <hr class="border-2" />
+
+                <!-- TOTAL -->
+                <div
+                    class="d-flex justify-content-between align-items-center mb-4"
+                >
+                    <span class="fs-5 fw-bold">Total a Pagar:</span>
+
+                    <span
+                        class="fs-4 fw-bold text-success"
+                        id="totalPagar"
+                    >
+                        $0
+                    </span>
+                </div>
+
+                <!-- BOTÓN CONFIRMAR -->
+                <button
+                    type="submit"
+                    class="btn btn-success btn-lg w-100 fw-bold"
+                    id="btnConfirmar"
+                >
+                    Confirmar Pedido
+                </button>
+
+                <!-- BOTÓN VOLVER AL CARRITO -->
+                <a
+                    href="carrito.html"
+                    class="btn btn-outline-secondary w-100 mt-2"
+                >
+                    Volver al Carrito
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+
+    <!-- === FOOTER === -->
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+      <p class="mb-1 text-center">© 2026 Sonido Vivo - Viña del Mar</p>
+      <small class="text-secondary">
+        Contacto: tienda.sonido.vivo@gmail.cl | Teléfono: +56 9 5555 5555
+      </small>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    
+    <!-- Script de productos -->
+    <script src="productos.js"></script>
+    <!-- Script personalizado para el checkout -->
+    <script src="checkoutScript.js"></script>
+  </body>
+</html>

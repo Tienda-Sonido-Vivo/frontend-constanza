@@ -1,0 +1,339 @@
+/* =========================================================
+   ESTILOS PERSONALIZADOS - CHECKOUT
+   ========================================================= */
+
+/* === GENERAL === */
+
+body {
+  background-color: #f8f9fa;
+}
+
+main {
+  min-height: calc(100vh - 300px);
+}
+
+/* === CARD PERSONALIZADO === */
+
+.card {
+  border: none;
+  border-radius: 8px;
+}
+
+.card-header {
+  border-radius: 8px 8px 0 0;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+}
+
+/* === HEADERS DE SECCIONES === */
+
+.card-header.bg-primary {
+  background: linear-gradient(135deg, #005f7f 0%, #003f50 100%) !important;
+}
+
+.card-header.bg-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%) !important;
+}
+
+/* === LABELS Y FORM === */
+
+.form-label {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.form-control,
+.form-select {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #005f7f;
+  box-shadow: 0 0 0 0.2rem rgba(0, 95, 127, 0.25);
+}
+
+/* === RADIO BUTTONS Y CHECKBOXES === */
+
+.form-check {
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  border-left: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.form-check:hover {
+  background-color: #e9ecef;
+  border-left-color: #005f7f;
+}
+
+.form-check-input {
+  width: 1.25em;
+  height: 1.25em;
+  margin-top: 0.25em;
+  cursor: pointer;
+  border: 2px solid #ddd;
+}
+
+.form-check-input:checked {
+  background-color: #005f7f;
+  border-color: #005f7f;
+}
+
+.form-check-label {
+  cursor: pointer;
+  margin-bottom: 0;
+  user-select: none;
+}
+
+/* === CAMPOS OPCIONALES === */
+
+.campos-tarjeta {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+.campos-tarjeta .form-label {
+  margin-top: 1rem;
+}
+
+.campos-tarjeta .form-label:first-of-type {
+  margin-top: 0;
+}
+
+/* === RESUMEN DEL PEDIDO === */
+
+.resumen-items {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.resumen-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.resumen-items::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.resumen-items::-webkit-scrollbar-thumb {
+  background: #005f7f;
+  border-radius: 10px;
+}
+
+.resumen-items::-webkit-scrollbar-thumb:hover {
+  background: #003f50;
+}
+
+/* === BOTONES === */
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
+  border: none;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.btn-outline-secondary {
+  color: #005f7f;
+  border-color: #005f7f;
+  font-weight: 600;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #005f7f;
+  border-color: #005f7f;
+}
+
+/* === BREADCRUMB === */
+
+.breadcrumb {
+  background-color: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+}
+
+.breadcrumb-item a {
+  color: #005f7f;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+/* === TÍTULOS === */
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* === RESPONSIVE DESIGN === */
+
+/* TELÉFONO MÓVIL (360px - 767px) */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .form-control,
+  .form-select {
+    font-size: 16px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .form-check {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .resumen-items {
+    max-height: 250px;
+  }
+
+  .sticky-top {
+    position: relative !important;
+    top: auto !important;
+    margin-top: 2rem;
+  }
+
+  .btn-success {
+    padding: 0.65rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .campos-tarjeta {
+    padding: 1rem;
+  }
+}
+
+/* TABLETA (768px - 1279px) */
+@media (min-width: 768px) and (max-width: 1279px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    margin-bottom: 1.25rem;
+  }
+
+  .resumen-items {
+    max-height: 280px;
+  }
+
+  .sticky-top {
+    position: sticky;
+    top: 20px;
+  }
+}
+
+/* ESCRITORIO (1280px+) */
+@media (min-width: 1280px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+
+  .resumen-items {
+    max-height: 350px;
+  }
+
+  .sticky-top {
+    position: sticky;
+    top: 20px;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+}
+
+/* === VALIDACIÓN DE FORMULARIO === */
+
+.was-validated .form-control:valid {
+  border-color: #28a745;
+  background-image: none;
+}
+
+.was-validated .form-control:invalid {
+  border-color: #dc3545;
+  background-image: none;
+}
+
+.invalid-feedback {
+  display: block;
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.valid-feedback {
+  display: block;
+  color: #28a745;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* === ANIMACIONES === */
+
+.card {
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === INFORMACIÓN ADICIONAL === */
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+.fw-semibold {
+  font-weight: 600;
+}
+
+hr {
+  border-color: #e9ecef;
+  margin: 1rem 0;
+}
+
+.border-2 {
+  border-width: 2px !important;
+}
