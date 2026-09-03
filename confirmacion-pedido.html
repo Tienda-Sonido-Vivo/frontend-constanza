@@ -281,10 +281,16 @@
           <div class="card card-numero-pedido shadow-sm text-center">
             <div class="card-body">
               <p class="text-muted mb-2">Número de Pedido</p>
-              <h2 class="color-azul fw-bold">#SV-2026-001234</h2>
+
+              <!-- Agregamos id de numero de pedido -->
+
+              <h2 id="numeroPedido" class="color-azul fw-bold"></h2>
+
+              <!-- Agregamos id de correo -->
               <p class="text-muted small mt-3">
                 Hemos enviado un correo de confirmación a
-                <strong>juan@ejemplo.com</strong>
+                <strong id="correoPedido"></strong>
+                
               </p>
             </div>
           </div>
@@ -302,7 +308,8 @@
               <div class="timeline-marcador"></div>
               <div class="timeline-contenido">
                 <h5 class="fw-semibold">Pedido Confirmado</h5>
-                <p class="text-muted mb-0">Martes, 1 de Septiembre 2026</p>
+                <!-- Agregamos id de fecha de pedido -->
+                <p id="fechaPedido" class="text-muted mb-0"></p>
                 <p class="small text-muted mt-1">Tu pedido ha sido recibido</p>
               </div>
             </div>
@@ -323,7 +330,7 @@
             <div class="timeline-item">
               <div class="timeline-marcador"></div>
               <div class="timeline-contenido">
-                <h5 class="fw-semibold">Enviado</h5>
+                <h5 class="fw-semibold">Despachado</h5>
                 <p class="text-muted mb-0">Próximos 3-5 días hábiles</p>
                 <p class="small text-muted mt-1">
                   Recibirás un número de seguimiento
@@ -357,24 +364,18 @@
             <div class="card-body">
               <div class="mb-3">
                 <p class="text-muted small mb-1">Método de Entrega</p>
-                <p class="fw-semibold mb-0">Despacho a Domicilio</p>
+                <!-- Agregamos id de metodo de entrega -->
+                <p id="metodoEntrega" class="fw-semibold mb-0"></p>
               </div>
               <hr />
               <div class="mb-3">
                 <p class="text-muted small mb-1">Dirección de Envío</p>
-                <p class="mb-0">
-                  <strong>Juan Pérez García</strong>
-                  <br />
-                  Calle Principal 123, Depto 42<br />
-                  Viña del Mar, Valparaíso<br />
-                  Código Postal: 2520000
-                </p>
+                
+                <!-- Agregamos id de direccion de entrega -->
+                <p id="direccionEntrega" class="mb-0"></p>
               </div>
               <hr />
-              <div class="mb-3">
-                <p class="text-muted small mb-1">Teléfono de Contacto</p>
-                <p class="fw-semibold mb-0">+56 9 1234 5678</p>
-              </div>
+
               <div class="alert alert-info mt-3 mb-0">
                 <small>
                   <strong>✓ Entrega estimada:</strong> 6-8 días hábiles desde
@@ -394,26 +395,31 @@
             <div class="card-body">
               <div class="mb-3">
                 <p class="text-muted small mb-1">Nombre Completo</p>
-                <p class="fw-semibold mb-0">Juan Pérez García</p>
+                <!-- Agregamos id de nombre -->
+                <p id="nombreCliente" class="fw-semibold mb-0"></p>
               </div>
               <hr />
               <div class="mb-3">
                 <p class="text-muted small mb-1">Correo Electrónico</p>
-                <p class="fw-semibold mb-0">juan@ejemplo.com</p>
+                <!-- Agregamos id de correo -->
+                <p id="correoCliente" class="fw-semibold mb-0"></p>
               </div>
               <hr />
               <div class="mb-3">
+                <!-- Agregamos id de nombre -->
                 <p class="text-muted small mb-1">Teléfono</p>
-                <p class="fw-semibold mb-0">+56 9 1234 5678</p>
+                <p id="telefonoCliente" class="fw-semibold mb-0"></p>
               </div>
               <hr />
               <div class="mb-3">
                 <p class="text-muted small mb-1">Región</p>
-                <p class="fw-semibold mb-0">Valparaíso</p>
+                <!-- Agregamos id de region -->
+                <p id="regionCliente" class="fw-semibold mb-0"></p>
               </div>
               <div>
+                <!-- Agregamos id de comuna -->
                 <p class="text-muted small mb-1">Comuna</p>
-                <p class="fw-semibold mb-0">Viña del Mar</p>
+                <p id="comunaCliente" class="fw-semibold mb-0"></p>
               </div>
             </div>
           </div>
@@ -425,55 +431,8 @@
         <div class="card-header bg-primary text-white">
           <h5 class="mb-0">🛍️ Productos Ordenados</h5>
         </div>
-        <div class="card-body">
-          <!-- PRODUCTO 1 -->
-          <div class="producto-item">
-            <div class="row align-items-center">
-              <div class="col-12 col-md-8">
-                <h6 class="fw-semibold mb-1">Guitarra Acústica Yamaha</h6>
-                <p class="text-muted small mb-0">
-                  Código: GIT-001 | Cantidad: 1
-                </p>
-              </div>
-              <div class="col-12 col-md-4 text-md-end">
-                <p class="fw-bold text-success mb-0">$89.990</p>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <!-- PRODUCTO 2 -->
-          <div class="producto-item">
-            <div class="row align-items-center">
-              <div class="col-12 col-md-8">
-                <h6 class="fw-semibold mb-1">Púas de Guitarra (Pack 10)</h6>
-                <p class="text-muted small mb-0">
-                  Código: PUA-001 | Cantidad: 2
-                </p>
-              </div>
-              <div class="col-12 col-md-4 text-md-end">
-                <p class="fw-bold text-success mb-0">$5.990</p>
-              </div>
-            </div>
-          </div>
-
-          <hr />
-
-          <!-- PRODUCTO 3 -->
-          <div class="producto-item">
-            <div class="row align-items-center">
-              <div class="col-12 col-md-8">
-                <h6 class="fw-semibold mb-1">Cable de Guitarra 5m</h6>
-                <p class="text-muted small mb-0">
-                  Código: CAB-001 | Cantidad: 1
-                </p>
-              </div>
-              <div class="col-12 col-md-4 text-md-end">
-                <p class="fw-bold text-success mb-0">$12.990</p>
-              </div>
-            </div>
-          </div>
+        <div id="productosOrdenados" class="card-body">
+          <!-- Los productos se cargarán mediante JavaScript -->
         </div>
       </div>
 
@@ -486,15 +445,15 @@
               <div class="mb-3">
                 <div class="d-flex justify-content-between mb-2">
                   <span>Subtotal:</span>
-                  <strong>$108.970</strong>
+                  <strong id="subtotalPedido"></strong>
                 </div>
                 <div class="d-flex justify-content-between mb-2">
                   <span>Costo de Envío (Despacho):</span>
-                  <strong>$8.990</strong>
+                  <strong id="envioPedido"></strong>
                 </div>
                 <div class="d-flex justify-content-between mb-3">
-                  <span>IVA (19%):</span>
-                  <strong>$20.704</strong>
+                  <span>IVA (incluido):</span>
+                  <strong id="ivaPedido"></strong>
                 </div>
               </div>
 
@@ -503,7 +462,7 @@
               <!-- TOTAL -->
               <div class="d-flex justify-content-between align-items-center">
                 <span class="fs-5 fw-bold">Total Pagado:</span>
-                <span class="fs-4 fw-bold text-success">$138.664</span>
+                <span id="totalPedido" class="fs-4 fw-bold text-success"></span>
               </div>
             </div>
           </div>
@@ -520,15 +479,15 @@
             </div>
             <div class="card-body">
               <p class="text-muted small mb-1">Tipo de Tarjeta</p>
-              <p class="fw-semibold mb-3">Tarjeta de Crédito</p>
+              <p id="metodoPago" class="fw-semibold mb-3"></p>
 
               <p class="text-muted small mb-1">Últimos Dígitos</p>
               <p class="fw-semibold mb-3">**** **** **** 3456</p>
 
               <div class="alert alert-success mb-0">
                 <small>
-                  <strong>✓ Pago procesado:</strong> Tu pago ha sido
-                  confirmado y procesado exitosamente
+                  <strong>✓ Pago registrado:</strong>
+                  El método de pago seleccionado ha sido registrado correctamente.
                 </small>
               </div>
             </div>
@@ -546,7 +505,7 @@
                 <li class="mb-2">
                   <span class="badge bg-primary me-2">1</span>
                   <span class="small">
-                    Recibirás un correo de confirmación en 5 minutos
+                    Tu pedido ha sido registrado correctamente
                   </span>
                 </li>
                 <li class="mb-2">
@@ -592,14 +551,6 @@
             >
               📦 Ver Mis Pedidos
             </a>
-
-            <!-- BOTÓN DESCARGAR COMPROBANTE -->
-            <button
-              class="btn btn-outline-secondary btn-lg fw-semibold"
-              onclick="descargarComprobante()"
-            >
-              📄 Descargar Comprobante
-            </button>
           </div>
         </div>
       </div>

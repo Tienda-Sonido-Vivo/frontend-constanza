@@ -39,6 +39,27 @@ let productos = [
 
 ];
 
+// =========================================================
+// CARGAR STOCK GUARDADO
+// =========================================================
+
+let stockGuardado = JSON.parse(localStorage.getItem("stockProductos"));
+
+if (stockGuardado) {
+
+    for (let i = 0; i < productos.length; i++) {
+
+        if (stockGuardado[productos[i].codigo] !== undefined) {
+
+            productos[i].stock =
+                stockGuardado[productos[i].codigo];
+
+        }
+
+    }
+
+}
+
 // Buscamos el div del HTML
 let lista = document.getElementById("listaProductos");
 

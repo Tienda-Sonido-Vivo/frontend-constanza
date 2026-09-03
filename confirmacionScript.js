@@ -1,207 +1,315 @@
 /* =========================================================
-   SCRIPT PERSONALIZADO - CONFIRMACIÓN DE PEDIDO
+   CONFIRMACIÓN DE PEDIDO
+
+   *** ACTUALIZADO! ***
    ========================================================= */
 
-/**
- * Función para descargar el comprobante del pedido en PDF
- */
-function descargarComprobante() {
-  alert(
-    "Comprobante descargado:\nSonido_Vivo_Pedido_SV-2026-001234.pdf"
-  );
 
-  // En producción, aquí se generaría un PDF real con:
-  // - fetch() a /api/pedidos/SV-2026-001234/comprobante
-  // - O usar librería como jsPDF/PDFKit
-  // - Descargar archivo automáticamente
+/* =========================================================
+   FORMATEAR MONEDA
+   ========================================================= */
+
+function formatearMoneda(valor) {
+
+    return new Intl.NumberFormat("es-CL", {
+        style: "currency",
+        currency: "CLP",
+        minimumFractionDigits: 0
+    }).format(valor);
+
 }
 
-/**
- * Función para enviar correo de confirmación (simulado)
- */
-function reenviarcorreoConfirmacion() {
-  alert(
-    "Correo de confirmación reenviado a juan@ejemplo.com"
-  );
 
-  // En producción:
-  // fetch('/api/pedidos/SV-2026-001234/reenviar-correo', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' }
-  // })
-}
+/* =========================================================
+   CARGAR PEDIDO
+   ========================================================= */
 
-/**
- * Función para copiar número de pedido al portapapeles
- */
-function copiarNumeroPedido() {
-  const numeroPedido = "#SV-2026-001234";
-  navigator.clipboard.writeText(numeroPedido).then(() => {
-    alert("Número de pedido copiado: " + numeroPedido);
-  });
-}
+function cargarPedido() {
 
-/**
- * Animación de los elementos al cargar la página
- */
-document.addEventListener("DOMContentLoaded", function () {
-  // Animar timeline items al cargar
-  const timelineItems = document.querySelectorAll(".timeline-item");
-  timelineItems.forEach((item, index) => {
-    setTimeout(() => {
-      item.style.animation = "fadeInUp 0.6s ease";
-    }, index * 200);
-  });
+    let pedido = JSON.parse(localStorage.getItem("ultimoPedido"));
 
-  // Reproducir sonido de éxito (opcional)
-  // reproducirSonidoExito();
+    if (!pedido) {
 
-  // Mostrar notificación de éxito
-  mostrarNotificacion();
-});
+        alert("No se encontró información del pedido.");
 
-/**
- * Función para mostrar notificación de éxito
- */
-function mostrarNotificacion() {
-  // Crear elemento de notificación
-  const notificacion = document.createElement("div");
-  notificacion.className =
-    "alert alert-success position-fixed top-0 start-50 translate-middle-x mt-3";
-  notificacion.style.zIndex = "9999";
-  notificacion.style.maxWidth = "500px";
-  notificacion.innerHTML = `
-    <strong>✓ Éxito:</strong> Tu pedido ha sido confirmado y se ha enviado un correo de confirmación.
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  `;
+        window.location.href = "SonidoVivo.html";
 
-  document.body.appendChild(notificacion);
-
-  // Remover después de 5 segundos
-  setTimeout(() => {
-    notificacion.remove();
-  }, 5000);
-}
-
-/**
- * Función para reproducir sonido de éxito (opcional)
- */
-function reproducirSonidoExito() {
-  // Crear un oscilador de sonido simple usando Web Audio API
-  const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-  const oscillator = audioContext.createOscillator();
-  const gainNode = audioContext.createGain();
-
-  oscillator.connect(gainNode);
-  gainNode.connect(audioContext.destination);
-
-  oscillator.frequency.value = 800;
-  gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-  gainNode.gain.exponentialRampToValueAtTime(
-    0.01,
-    audioContext.currentTime + 0.5
-  );
-
-  oscillator.start(audioContext.currentTime);
-  oscillator.stop(audioContext.currentTime + 0.5);
-}
-
-/**
- * Función para exportar detalles del pedido a JSON
- */
-function exportarDetallesPedido() {
-  const detallesPedido = {
-    numeroPedido: "#SV-2026-001234",
-    fecha: "2026-09-01",
-    estado: "Confirmado",
-    cliente: {
-      nombre: "Juan Pérez García",
-      correo: "juan@ejemplo.com",
-      telefono: "+56 9 1234 5678",
-    },
-    entrega: {
-      metodo: "Despacho a Domicilio",
-      direccion: "Calle Principal 123, Depto 42",
-      ciudad: "Viña del Mar",
-      region: "Valparaíso",
-      codigoPostal: "2520000",
-    },
-    productos: [
-      {
-        nombre: "Guitarra Acústica Yamaha",
-        cantidad: 1,
-        precio: 89990,
-      },
-      {
-        nombre: "Púas de Guitarra (Pack 10)",
-        cantidad: 2,
-        precio: 5990,
-      },
-      {
-        nombre: "Cable de Guitarra 5m",
-        cantidad: 1,
-        precio: 12990,
-      },
-    ],
-    totales: {
-      subtotal: 108970,
-      envio: 8990,
-      iva: 20704,
-      total: 138664,
-    },
-    pago: {
-      metodo: "Tarjeta de Crédito",
-      ultimosDigitos: "3456",
-    },
-  };
-
-  // Descargar como archivo JSON
-  const dataStr =
-    "data:text/json;charset=utf-8," +
-    encodeURIComponent(JSON.stringify(detallesPedido, null, 2));
-  const downloadAnchorNode = document.createElement("a");
-  downloadAnchorNode.setAttribute("href", dataStr);
-  downloadAnchorNode.setAttribute(
-    "download",
-    "pedido_SV-2026-001234.json"
-  );
-  document.body.appendChild(downloadAnchorNode);
-  downloadAnchorNode.click();
-  downloadAnchorNode.remove();
-}
-
-/**
- * Función para actualizar estado del pedido (simulado)
- */
-function actualizarEstadoPedido() {
-  // En producción, esto obtendría el estado real de la BD
-  const estadoActual = "Confirmado";
-  const proximos = ["En Preparación", "Enviado", "Entregado"];
-
-  console.log("Estado actual del pedido: " + estadoActual);
-  console.log("Próximos estados: " + proximos.join(" → "));
-
-  // Simular obtención de estado desde API
-  // fetch('/api/pedidos/SV-2026-001234')
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     actualizarTimelineUI(data.estado);
-  //   });
-}
-
-/**
- * Función para actualizar el timeline UI según estado real
- */
-function actualizarTimelineUI(nuevoEstado) {
-  const estados = ["Confirmado", "Preparación", "Enviado", "Entregado"];
-  const indiceEstado = estados.indexOf(nuevoEstado);
-
-  const timelineItems = document.querySelectorAll(".timeline-item");
-  timelineItems.forEach((item, index) => {
-    if (index <= indiceEstado) {
-      item.classList.add("activo");
-    } else {
-      item.classList.remove("activo");
+        return;
     }
-  });
+
+
+    /* Número de pedido */
+
+    document.getElementById("numeroPedido").textContent =
+        "#" + pedido.codigo;
+
+
+    /* Fecha */
+
+    document.getElementById("fechaPedido").textContent =
+        pedido.fecha;
+
+
+    /* Correo */
+
+    document.getElementById("correoPedido").textContent =
+        pedido.cliente.correo;
+
+
+    /* =====================================================
+       DATOS DEL CLIENTE
+       ===================================================== */
+
+    document.getElementById("nombreCliente").textContent =
+        pedido.cliente.nombre + " " + pedido.cliente.apellidos;
+
+    document.getElementById("correoCliente").textContent =
+        pedido.cliente.correo;
+
+    document.getElementById("telefonoCliente").textContent =
+        pedido.cliente.telefono;
+
+    document.getElementById("regionCliente").textContent =
+        pedido.cliente.region;
+
+    document.getElementById("comunaCliente").textContent =
+        pedido.cliente.comuna;
+
+
+    /* =====================================================
+       MÉTODO DE ENTREGA
+       ===================================================== */
+
+    if (pedido.metodoEntrega === "despacho") {
+
+        document.getElementById("metodoEntrega").textContent =
+            "Despacho a Domicilio";
+
+        document.getElementById("direccionEntrega").innerHTML =
+            "<strong>" +
+            pedido.cliente.nombre + " " +
+            pedido.cliente.apellidos +
+            "</strong><br>" +
+            pedido.cliente.direccion +
+            "<br>" +
+            pedido.cliente.comuna + ", " +
+            pedido.cliente.region +
+            "<br>" +
+            "Código Postal: " +
+            (pedido.cliente.codigoPostal || "No especificado");
+
+    } else {
+
+        document.getElementById("metodoEntrega").textContent =
+            "Retiro en Tienda";
+
+        document.getElementById("direccionEntrega").innerHTML =
+            "<strong>Tienda Sonido Vivo</strong><br>" +
+            "Viña del Mar<br>" +
+            "Retiro presencial en tienda";
+
+    }
+
+
+    /* =====================================================
+       PRODUCTOS
+       ===================================================== */
+
+    let contenedorProductos =
+        document.getElementById("productosOrdenados");
+
+    contenedorProductos.innerHTML = "";
+
+
+    for (let i = 0; i < pedido.productos.length; i++) {
+
+        let productoPedido = pedido.productos[i];
+
+        let producto = null;
+
+
+        for (let j = 0; j < productos.length; j++) {
+
+            if (productos[j].codigo === productoPedido.codigo) {
+
+                producto = productos[j];
+
+                break;
+            }
+        }
+
+
+        if (!producto) {
+            continue;
+        }
+
+
+        let subtotalProducto =
+            producto.precio * productoPedido.cantidad;
+
+
+        contenedorProductos.innerHTML += `
+
+            <div class="producto-item">
+
+                <div class="row align-items-center">
+
+                    <div class="col-12 col-md-8">
+
+                        <h6 class="fw-semibold mb-1">
+                            ${producto.nombre}
+                        </h6>
+
+                        <p class="text-muted small mb-0">
+                            Código: ${producto.codigo}
+                            |
+                            Cantidad: ${productoPedido.cantidad}
+                        </p>
+
+                    </div>
+
+                    <div class="col-12 col-md-4 text-md-end">
+
+                        <p class="fw-bold text-success mb-0">
+                            ${formatearMoneda(subtotalProducto)}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        if (i < pedido.productos.length - 1) {
+
+            contenedorProductos.innerHTML += "<hr>";
+
+        }
+
+    }
+
+
+    /* =====================================================
+       RESUMEN FINANCIERO
+       ===================================================== */
+
+    document.getElementById("subtotalPedido").textContent =
+        formatearMoneda(pedido.subtotal);
+
+    document.getElementById("envioPedido").textContent =
+        formatearMoneda(pedido.envio);
+
+    document.getElementById("ivaPedido").textContent =
+        formatearMoneda(pedido.iva);
+
+    document.getElementById("totalPedido").textContent =
+        formatearMoneda(pedido.total);
+
+
+    /* =====================================================
+       MÉTODO DE PAGO
+       ===================================================== */
+
+    let nombrePago = "";
+
+    if (pedido.metodoPago === "debito") {
+
+        nombrePago = "Tarjeta de Débito";
+
+    } else if (pedido.metodoPago === "credito") {
+
+        nombrePago = "Tarjeta de Crédito";
+
+    } else if (pedido.metodoPago === "transbank") {
+
+        nombrePago = "Transbank Webpay";
+
+    } else if (pedido.metodoPago === "klap") {
+
+        nombrePago = "Klap";
+
+    }
+
+
+    document.getElementById("metodoPago").textContent =
+        nombrePago;
+
+
+    /* =====================================================
+       ESTADO
+       ===================================================== */
+
+    actualizarTimeline(pedido.estado);
+
 }
+
+
+/* =========================================================
+   ACTUALIZAR TIMELINE
+   ========================================================= */
+
+function actualizarTimeline(estadoActual) {
+
+    let estados = [
+        "Confirmado",
+        "En preparación",
+        "Despachado",
+        "Entregado"
+    ];
+
+
+    let indiceEstado =
+        estados.indexOf(estadoActual);
+
+
+    let timelineItems =
+        document.querySelectorAll(".timeline-item");
+
+
+    for (let i = 0; i < timelineItems.length; i++) {
+
+        if (i <= indiceEstado) {
+
+            timelineItems[i].classList.add("activo");
+
+        } else {
+
+            timelineItems[i].classList.remove("activo");
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   CARGAR AL ABRIR LA PÁGINA
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    cargarPedido();
+
+
+    /* Animación del timeline */
+
+    let timelineItems =
+        document.querySelectorAll(".timeline-item");
+
+
+    for (let i = 0; i < timelineItems.length; i++) {
+
+        setTimeout(function () {
+
+            timelineItems[i].style.animation =
+                "fadeInUp 0.6s ease";
+
+        }, i * 200);
+
+    }
+
+});

@@ -300,15 +300,320 @@ function formatearMoneda(valor) {
   }).format(valor);
 }
 
-/**
- * Función para validar el formulario y mostrar errores
- */
-function validarFormulario(form) {
-  if (!form.checkValidity() === false) {
+/* FUNCION DE VALIDAR FORMULARIO CLARIFICADA Y CORREGIDA */
+
+function validarFormulario(form, event) {
+
+  if (!form.checkValidity()) {
+
     event.preventDefault();
     event.stopPropagation();
+
   }
+
   form.classList.add("was-validated");
+}
+
+/* FUNCIÓN DE CREAR PEDIDO AÑADIDO */
+
+function crearPedido() {
+
+  let carrito = JSON.parse(localStorage.getItem("carrito"));
+
+  if (!carrito || carrito.length === 0) {
+
+    alert("El carrito está vacío.");
+
+    return false;
+  }
+
+
+  // =====================================================
+  // OBTENER PEDIDOS EXISTENTES
+  // =====================================================
+
+  let pedidos = JSON.parse(localStorage.getItem("pedidos"));
+
+  if (!pedidos) {
+
+    pedidos = [];
+
+  }
+
+
+  // =====================================================
+  // GENERAR CÓDIGO DEL PEDIDO
+  // =====================================================
+
+  let numeroPedido = pedidos.length + 1;
+
+  let codigoPedido =
+    "SV-" +
+    new Date().getFullYear() +
+    "-" +
+    String(numeroPedido).padStart(4, "0");
+
+
+  // =====================================================
+  // OBTENER MÉTODO DE ENTREGA
+  // =====================================================
+
+  let metodoEntrega =
+    document.querySelector(
+      'input[name="metodoEntrega"]:checked'
+    ).value;
+
+
+  // =====================================================
+  // OBTENER MÉTODO DE PAGO
+  // =====================================================
+
+  let metodoPago =
+    document.querySelector(
+      'input[name="metodoPago"]:checked'
+    ).value;
+
+
+  // =====================================================
+  // CALCULAR TOTALES
+  // =====================================================
+
+  let subtotal = cargarResumenCarrito();
+
+  let envio =
+    metodoEntrega === "despacho" ? 8990 : 0;
+
+  // El precio ya incluye IVA
+  let iva =
+    Math.round(subtotal * 19 / 119);
+
+  let total =
+    subtotal + envio;
+
+
+  // =====================================================
+  // OBTENER DATOS DEL CLIENTE
+  // =====================================================
+
+  let cliente = {
+
+    nombre:
+      document.getElementById("nombre").value,
+
+    apellidos:
+      document.getElementById("apellidos").value,
+
+    telefono:
+      document.getElementById("telefono").value,
+
+    correo:
+      document.getElementById("correo").value,
+
+    region:
+      document.getElementById("region").value,
+
+    comuna:
+      document.getElementById("comuna").value,
+
+    direccion:
+      document.getElementById("direccion").value,
+
+    numeroVivienda:
+      document.getElementById("numeroVivienda").value,
+
+    codigoPostal:
+      document.getElementById("codigoPostal").value
+
+  };
+
+
+  // =====================================================
+  // COPIAR PRODUCTOS DEL CARRITO
+  // =====================================================
+
+  let productosPedido = [];
+
+  for (let i = 0; i < carrito.length; i++) {
+
+    productosPedido.push({
+
+      codigo: carrito[i].codigo,
+
+      cantidad: carrito[i].cantidad
+
+    });
+
+  }
+
+
+  // =====================================================
+  // VALIDAR STOCK ANTES DE CONFIRMAR
+  // =====================================================
+
+  for (let i = 0; i < productosPedido.length; i++) {
+
+    let producto = null;
+
+    for (let j = 0; j < productos.length; j++) {
+
+      if (
+        productos[j].codigo ===
+        productosPedido[i].codigo
+      ) {
+
+        producto = productos[j];
+
+        break;
+
+      }
+
+    }
+
+
+    if (!producto) {
+
+      alert(
+        "Uno de los productos del carrito ya no existe."
+      );
+
+      return false;
+
+    }
+
+
+    if (
+      productosPedido[i].cantidad >
+      producto.stock
+    ) {
+
+      alert(
+        "No hay suficiente stock de " +
+        producto.nombre +
+        ". Stock disponible: " +
+        producto.stock
+      );
+
+      return false;
+
+    }
+
+  }
+
+
+  // =====================================================
+  // CREAR OBJETO PEDIDO
+  // =====================================================
+
+  let pedido = {
+
+    codigo: codigoPedido,
+
+    fecha:
+      new Date().toLocaleDateString("es-CL", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric"
+      }),
+
+    estado: "En preparación",
+
+    productos: productosPedido,
+
+    subtotal: subtotal,
+
+    envio: envio,
+
+    iva: iva,
+
+    total: total,
+
+    metodoEntrega: metodoEntrega,
+
+    metodoPago: metodoPago,
+
+    cliente: cliente
+
+  };
+
+
+  // =====================================================
+  // RESTAR STOCK
+  // =====================================================
+
+  let stockProductos = JSON.parse(
+    localStorage.getItem("stockProductos")
+  );
+
+  if (!stockProductos) {
+
+    stockProductos = {};
+
+  }
+
+
+  for (let i = 0; i < productosPedido.length; i++) {
+
+    for (let j = 0; j < productos.length; j++) {
+
+      if (
+        productos[j].codigo ===
+        productosPedido[i].codigo
+      ) {
+
+        productos[j].stock -=
+          productosPedido[i].cantidad;
+
+
+        stockProductos[productos[j].codigo] =
+          productos[j].stock;
+
+      }
+
+    }
+
+  }
+
+
+  // =====================================================
+  // GUARDAR STOCK ACTUALIZADO
+  // =====================================================
+
+  localStorage.setItem(
+    "stockProductos",
+    JSON.stringify(stockProductos)
+  );
+
+
+  // =====================================================
+  // GUARDAR PEDIDO EN EL HISTORIAL
+  // =====================================================
+
+  pedidos.push(pedido);
+
+  localStorage.setItem(
+    "pedidos",
+    JSON.stringify(pedidos)
+  );
+
+
+  // =====================================================
+  // GUARDAR ÚLTIMO PEDIDO
+  // =====================================================
+
+  localStorage.setItem(
+    "ultimoPedido",
+    JSON.stringify(pedido)
+  );
+
+
+  // =====================================================
+  // VACIAR CARRITO
+  // =====================================================
+
+  localStorage.removeItem("carrito");
+
+
+  return true;
 }
 
 /**
@@ -324,25 +629,41 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Manejar el envío del formulario
   const formCheckout = document.getElementById("formCheckout");
+  
+  /* ENVIO DE FORMULARIO CORREGIDO */
+
   formCheckout.addEventListener("submit", function (event) {
-    validarFormulario(this);
 
-    if (this.checkValidity()) {
-      event.preventDefault();
-      event.stopPropagation();
+    validarFormulario(this, event);
 
-      // Aquí se enviaría la información del formulario a un servidor
-      console.log("Formulario válido - Pedido confirmado");
 
-      // Mostrar mensaje de éxito (simulado)
-      alert(
-        "¡Pedido confirmado! Número de referencia: #SV-2026-001234\n\nEn breve recibirás un correo de confirmación.",
-      );
+    if (!this.checkValidity()) {
 
-      // Limpiar formulario (opcional)
-      // formCheckout.reset();
+      return;
+
     }
+
+
+    event.preventDefault();
+    event.stopPropagation();
+
+
+    // Crear y guardar el pedido
+    let pedidoCreado = crearPedido();
+
+
+    if (!pedidoCreado) {
+
+      return;
+
+    }
+
+
+    // Ir a la página de confirmación
+    window.location.href = "confirmacion-pedido.html";
+
   });
+  
 });
 
 /**
