@@ -356,8 +356,10 @@
 
             <!-- Estado del pedido -->
             <div class="mt-3 mt-md-0">
-                <span class="badge text-bg-warning pedido-estado">
-                    En preparación
+                <span
+                id="estadoPedidoBadge"
+                class="badge text-bg-warning pedido-estado">
+                    <!-- Se cargará mediante JavaScript -->
                 </span>
             </div>
 
@@ -378,8 +380,8 @@
                             Número de pedido
                         </span>
 
-                        <strong>
-                            #SV-1001
+                        <strong id="numeroPedido">
+                            <!-- Se cargará mediante JavaScript -->
                         </strong>
 
                     </div>
@@ -392,8 +394,8 @@
                             Fecha de compra
                         </span>
 
-                        <span>
-                            25/08/2026
+                        <span id="fechaPedido">
+                            <!-- Se cargará mediante JavaScript -->
                         </span>
 
                     </div>
@@ -406,8 +408,8 @@
                             Estado
                         </span>
 
-                        <span>
-                            En preparación
+                        <span id="estadoPedido">
+                            <!-- Se cargará mediante JavaScript -->
                         </span>
 
                     </div>
@@ -436,143 +438,9 @@
                     </div>
 
 
-                    <div class="card-body">
+                    <div id="productosPedido" class="card-body">
 
-                        <!-- ==================== PRODUCTO 1 ==================== -->
-                        <div class="detalle-producto">
-
-                            <div class="row align-items-center g-3">
-
-                                <!-- Imagen -->
-                                <div class="col-4 col-sm-3 col-md-2">
-
-                                    <img
-                                        src="/imagenes/tarjetas/Guitarra Acustica Yamaha F310.webp"
-                                        alt="Guitarra acústica Yamaha"
-                                        class="img-fluid rounded detalle-producto-imagen"
-                                    >
-
-                                </div>
-
-
-                                <!-- Información -->
-                                <div class="col-8 col-sm-9 col-md-5">
-
-                                    <h3 class="h6 fw-bold mb-1">
-                                        Guitarra Acústica Yamaha F310
-                                    </h3>
-
-                                    <p class="text-muted small mb-1">
-                                        Guitarra Acústica
-                                    </p>
-
-                                    <span class="small">
-                                        Precio unitario: $129.990
-                                    </span>
-
-                                </div>
-
-
-                                <!-- Cantidad -->
-                                <div class="col-6 col-md-2">
-
-                                    <span class="text-muted small d-block">
-                                        Cantidad
-                                    </span>
-
-                                    <span>
-                                        1
-                                    </span>
-
-                                </div>
-
-
-                                <!-- Subtotal -->
-                                <div class="col-6 col-md-3 text-md-end">
-
-                                    <span class="text-muted small d-block">
-                                        Subtotal
-                                    </span>
-
-                                    <strong>
-                                        $129.990
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <hr>
-
-
-                        <!-- ==================== PRODUCTO 2 ==================== -->
-                        <div class="detalle-producto">
-
-                            <div class="row align-items-center g-3">
-
-                                <!-- Imagen -->
-                                <div class="col-4 col-sm-3 col-md-2">
-
-                                    <img
-                                        src="/imagenes/tarjetas/Bajo Fender Player Jazz.jpg"
-                                        alt="Bajo Fender"
-                                        class="img-fluid rounded detalle-producto-imagen"
-                                    >
-
-                                </div>
-
-
-                                <!-- Información -->
-                                <div class="col-8 col-sm-9 col-md-5">
-
-                                    <h3 class="h6 fw-bold mb-1">
-                                        Bajo Fender Player Jazz
-                                    </h3>
-
-                                    <p class="text-muted small mb-1">
-                                        Bajos Eléctricos
-                                    </p>
-
-                                    <span class="small">
-                                        Precio unitario: $699.990
-                                    </span>
-
-                                </div>
-
-
-                                <!-- Cantidad -->
-                                <div class="col-6 col-md-2">
-
-                                    <span class="text-muted small d-block">
-                                        Cantidad
-                                    </span>
-
-                                    <span>
-                                        1
-                                    </span>
-
-                                </div>
-
-
-                                <!-- Subtotal -->
-                                <div class="col-6 col-md-3 text-md-end">
-
-                                    <span class="text-muted small d-block">
-                                        Subtotal
-                                    </span>
-
-                                    <strong>
-                                        $699.990
-                                    </strong>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                        <!-- Los productos se cargarán mediante JavaScript -->
 
                     </div>
 
@@ -600,8 +468,8 @@
                                 Productos
                             </span>
 
-                            <span>
-                                $829.980
+                            <span id="subtotalPedido">
+                                <!-- Se cargará mediante JavaScript -->
                             </span>
 
                         </div>
@@ -614,8 +482,8 @@
                                 IVA (19%)
                             </span>
 
-                            <span>
-                                $157.696
+                            <span id="ivaPedido">
+                                <!-- Se cargará mediante JavaScript -->
                             </span>
 
                         </div>
@@ -631,8 +499,8 @@
                                 Total
                             </span>
 
-                            <span class="fw-bold fs-4">
-                                $987.676
+                            <span id="totalPedido" class="fw-bold fs-4">
+                                <!-- Se cargará mediante JavaScript -->
                             </span>
 
                         </div>
@@ -670,7 +538,11 @@
 
     <!-- Link al script de javascript de bootstrap -->
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Links a los scripts personalizados -->
+
+    <script src="productos.js"></script>
+    <script src="detalle-pedido.js"></script>
 </body>
 </html>
