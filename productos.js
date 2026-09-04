@@ -1,6 +1,18 @@
 let productos = [
 
     {
+        codigo: "BA001",
+        nombre: "Bajo Eléctrico 4 Cuerdas",
+        categoria: "Bajos Eléctricos",
+        marca: "Squier",
+        modelo: "Affinity PJ",
+        precio: 299990,
+        stock: 5,
+        imagen: "imagenes/tarjetas/Bajo Eléctrico 4 Cuerdas squier Affinity PJ.webp",
+        descripcion: "Pickup PJ, cuerpo álamo, mástil arce."
+    },
+
+    {
         codigo: "BA002",
         nombre: "Bajo Eléctrico Jazz Bass",
         categoria: "Bajos Eléctricos",
@@ -10,6 +22,18 @@ let productos = [
         stock: 2,
         imagen: "imagenes/tarjetas/Bajo Fender Player Jazz.jpg",
         descripcion: "Alder body, 2 Alnico V Jazz single-coil."
+    },
+
+    {
+        codigo: "BA003",
+        nombre: "Bajo Acústico 4 Cuerdas",
+        categoria: "Bajos Eléctricos",
+        marca: "Yamaha",
+        modelo: "APX700II",
+        precio: 429990,
+        stock: 2,
+        imagen: "imagenes/tarjetas/Bajo Acústico 4 Cuerdas Yamaha APX700II.jpg",
+        descripcion: "Electroacústico, afinador incorporado."
     },
 
 
@@ -26,6 +50,54 @@ let productos = [
     },
 
     {
+        codigo: "GA002",
+        nombre: "Guitarra Acústica Dreadnought",
+        categoria: "Guitarras Acústicas",
+        marca: "Fender",
+        modelo: "CD-60S",
+        precio: 189990,
+        stock: 5,
+        imagen: "imagenes/tarjetas/Guitarra Acústica Dreadnought Fender CD-60S.jpg",
+        descripcion: "Tapa de abeto macizo, brazo de caoba. Sonido cálido y proyectado."
+    },
+
+        {
+        codigo: "GA003",
+        nombre: "Guitarra Acústica Clásica 4/4",
+        categoria: "Guitarras Acústicas",
+        marca: "Yamaha",
+        modelo: "C40",
+        precio: 89990,
+        stock: 10,
+        imagen: "imagenes/tarjetas/Guitarra Acústica Clásica Yamaha C40.webp",
+        descripcion: "Nailon, tapa de abeto. Ideal para estudio y flamenco."
+    },
+
+    {
+        codigo: "BT001",
+        nombre: "Batería Acústica 5 piezas",
+        categoria: "Baterías",
+        marca: "Pearl",
+        modelo: "Roadshow",
+        precio: 599990,
+        stock: 2,
+        imagen: "imagenes/tarjetas/Bateria Pearl Roadshow.jpeg",
+        descripcion: "Incluye stands, platillos y pedal de bombo."
+    },
+
+    {
+        codigo: "BT002",
+        nombre: "Batería Electrónica 8 pads",
+        categoria: "Baterías",
+        marca: "Roland",
+        modelo: "TD-02KV",
+        precio: 799990,
+        stock: 2,
+        imagen: "imagenes/tarjetas/Bateria Roland TD-02KV.webp",
+        descripcion: "Módulo TD-02, 8 pads de goma, pedal hi-hat."
+    },
+
+    {
         codigo: "BT003",
         nombre: 'Caja Snare 14"',
         categoria: "Baterías",
@@ -33,7 +105,7 @@ let productos = [
         modelo: "STE1450",
         precio: 89990,
         stock: 4,
-        imagen: "imagenes/tarjetas/Bateria Pearl STE1450.jpeg",
+        imagen: "imagenes/tarjetas/Caja Snare 14 Pearl STE1450.jpeg",
         descripcion: 'Acero, 14x5", 10 tensores.'
     }
 
@@ -63,52 +135,57 @@ if (stockGuardado) {
 // Buscamos el div del HTML
 let lista = document.getElementById("listaProductos");
 
-// Recorremos el arreglo de productos
-for (let i = 0; i < productos.length; i++) {
 
-    lista.innerHTML += `
+// Si existe el div, mostramos los productos
+if (lista) {
 
-                    <!-- TARJETA | Columna -->
+    // Recorremos el arreglo de productos
+    for (let i = 0; i < productos.length; i++) {
 
-                    <!-- COL: Este contenedor hara que cada imagen sea una columna individual de la fila -->
+        lista.innerHTML += `
 
-                    <div class="col-12 col-md-6 col-xl-4">
+                        <!-- TARJETA | Columna -->
 
-                        <div class="card h-100 w-100">
+                        <!-- COL: Este contenedor hara que cada imagen sea una columna individual de la fila -->
 
-                            <img
-                                src="${productos[i].imagen}"
-                                class="card-img-top"
-                                alt="producto"
-                            >
+                        <div class="col-12 col-md-6 col-xl-4">
 
-                            <div class="card-body text-center">
+                            <div class="card h-100 w-100">
 
-                                <h5 class="card-title">
-                                    ${productos[i].nombre}
-                                </h5>
+                                <img
+                                    src="${productos[i].imagen}"
+                                    class="card-img-top"
+                                    alt="producto"
+                                >
 
-                                <p class="card-text text-center">
-                                    ${productos[i].marca} | ${productos[i].modelo}
-                                </p>
+                                <div class="card-body text-center">
 
-                                <h3 class="card-title">
-                                    $${productos[i].precio}
-                                </h3>
+                                    <h5 class="card-title">
+                                        ${productos[i].nombre}
+                                    </h5>
 
-                                <button
-                                class="btn btn-primary"
-                                onclick="verDetalle('${productos[i].codigo}')">
-                                    Ver detalle
-                                </button>
+                                    <p class="card-text text-center">
+                                        ${productos[i].marca} | ${productos[i].modelo}
+                                    </p>
+
+                                    <h3 class="card-title">
+                                        $${productos[i].precio}
+                                    </h3>
+
+                                    <button
+                                    class="btn btn-primary"
+                                    onclick="verDetalle('${productos[i].codigo}')">
+                                        Ver detalle
+                                    </button>
+
+                                </div>
 
                             </div>
 
                         </div>
 
-                    </div>
-
-    `;
+        `;
+    }
 }
 
 // Función que recibe el id del producto seleccionado

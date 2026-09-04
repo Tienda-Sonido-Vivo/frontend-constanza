@@ -7,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TiendaSonidoVivo.com</title>
+    <title>CatalogoTiendaSonido</title>
 
     <!-- Link a la hoja de estilos CSS: Aplicará los estilos de ese archivo CSS -->
     <link rel="stylesheet" href="SonidoVivoEstilos.css">
@@ -371,176 +371,40 @@
 
     </header>
 
+    <main class="container my-5">
 
-    <!-- CARRUSEL -->
+        <!-- TÍTULO DEL CATÁLOGO -->
 
-    <div
-        id="carouselExample"
-        class="carousel slide"
-        data-bs-ride="carousel"
-    >
+        <div class="mb-4">
 
-        <div class="carousel-inner">
+            <h1 class="color-azul fw-bold" id="tituloCatalogo">
+                Catálogo de productos
+            </h1>
 
-            <!-- PRIMERA IMAGEN -->
-
-            <div class="carousel-item active">
-
-                <img
-                    src="imagenes/carruseles/SonidoVivoPortada1.jpeg"
-                    class="d-block w-100"
-                    alt="Fondo1"
-                    height="700"
-                >
-
-
-                <div class="textoCarrusel">
-
-                    <h1>
-                        Vive la Experiencia de la Musica
-                    </h1>
-
-                </div>
-
-            </div>
-
-
-            <!-- SEGUNDA IMAGEN -->
-
-            <div class="carousel-item">
-
-                <img
-                    src="imagenes/carruseles/FondoRock.jpg"
-                    class="d-block w-100"
-                    alt="Fondo2"
-                    height="700"
-                >
-
-
-                <div class="textoCarrusel">
-
-                    <h1>
-                        Vive la Experiencia de la Musica
-                    </h1>
-
-                </div>
-
-            </div>
-
-
-            <!-- TERCERA IMAGEN -->
-
-            <div class="carousel-item">
-
-                <img
-                    src="imagenes/carruseles/FondoPiano.jpeg"
-                    class="d-block w-100"
-                    alt="Fondo3"
-                    height="700"
-                >
-
-
-                <div class="textoCarrusel">
-
-                    <h1>
-                        Vive la Experiencia de la Musica
-                    </h1>
-
-                </div>
-
-            </div>
+            <p class="text-muted" id="descripcionCatalogo">
+                Explora todos nuestros instrumentos y productos disponibles.
+            </p>
 
         </div>
 
 
-        <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-        >
+        <!-- PRODUCTOS -->
 
-            <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-            ></span>
+        <section>
 
-            <span class="visually-hidden">
-                Previous
-            </span>
+            <div
+                class="row g-4"
+                id="listaCatalogo"
+            >
 
-        </button>
-
-
-        <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-        >
-
-            <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-            ></span>
-
-            <span class="visually-hidden">
-                Next
-            </span>
-
-        </button>
-
-    </div>
-
-    <main>
-
-        <section class="seccion-principal container mt-4">
-
-            <!-- Esta parte la quiero destinar a la presentación del proyecto -->
-            <h1 class="color-azul text-center"><strong>Sección Principal</strong></h1>
-
-            <hr>
-
-            <p class="color-azul">
-                El presente sitio web corresponede a nuestro proyecto del caso semestral asignado por la asignatura
-                de Fullstack II, en donde se ponen a prueba nuestras habilidades y conocimientos con respecto
-                a HTML y CSS, asi como también con Bootstrap y Javascript.
-                Este proyecto en especifico corresponde a una tienda de articulos de música y sonido
-                ubicada en Viña del Mar que desea expandirse al mercado digital por medio de su propia
-                plataforma de comercio electrónico para la venta en línea de sus productos.
-            </p>
-
-            <div class="text-center">
-
-                <img
-                    src="imagenes/carruseles/SonidoVivoPortada1.jpeg"
-                    class="imagen-principal"
-                    alt="imagen introductoria del proyecto">
-            </div>
-
-            <hr>
-
-        </section>
-
-        <!-- FILA DE TARJETAS -->
-
-         <!-- Este será el contenedor principal que tendra las tarjetas de productos -->
-
-        <section class="container mt-4">
-
-            <h2 class="color-azul"><strong>Productos más destacados</strong> </h2><br>
-
-            <!-- ROW: este contenedor pondra todas las tarjetas en una sola fila -->
-
-            <div class="row g-4" id="listaProductos">
-                
+                <!-- Los productos serán cargados mediante JavaScript -->
 
             </div>
 
         </section>
-        
+
     </main>
-
+        
 
     <footer class="bg-dark text-white text-center p-4 mt-5">
 
@@ -567,6 +431,8 @@
     <!-- Link a los javascripts del proyecto -->
 
     <script src="productos.js"></script>
+
+    <script src="catalogo.js"></script>
 
 </body>
 
